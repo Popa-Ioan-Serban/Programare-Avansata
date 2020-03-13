@@ -9,6 +9,11 @@ public class GreedyAlgorithm extends KnapsackAlgorithm {
         this.items = items;
     }
 
+    /**
+    * Algoritmul Greedy care rezolva aceasta problema se bazeaza pe ideea ca lista de obiecte (items) este sortata
+    * pe baza valorii (descrescator) si se vor adauga obiecte pe rand in rucsac cat timp exista loc in rucsac si obiecte in
+    * lista
+    */
     public void computeSolution() {
         items.sort(Item::reverseCompareByValue);
 
