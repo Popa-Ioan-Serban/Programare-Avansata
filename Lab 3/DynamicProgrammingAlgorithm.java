@@ -11,6 +11,15 @@ public class DynamicProgrammingAlgorithm extends KnapsackAlgorithm {
         m = new int[items.size() + 1][knapsack.getCapacity() + 1];
     }
 
+    /**
+    * Varianta de programare dinamica a acestui algoritm are la baza o matrice care se compune astfel:
+    * m[i][j] = valoarea maxima care poate fi obtinuta adaugandu-se primele (o parte nu neaparat toate) i obiecte (sortate 
+    * dupa masa) intr-un rucsac cu capacitatea j. Astfel o sa stim ca intotdauna dupa ce construim aceasta matrice, pe pozitia 
+    * m[nr_max_obj][cap_max_rucsac] se va afla valoarea maxima a obiectelor ce pot fi adaugate in rucsac. Pentru a obtine 
+    * si o lista cu aceste obiecte pornim de la aceasta valoare maxima si verificam daca ea se regaseste pe linia i - 1. Daca
+    * NU se regaseste atunci obiectul reprezentat de linia curenta face parte din rucsac altfel continuam cautarea pe liniile
+    * anterioare.
+    */
     public void computeSolution() {
         items.sort(Item::compareByWeight);
 
